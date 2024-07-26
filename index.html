@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio Digital - Fast Food</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Cardápio Digital - Fast Food</h1>
+
+        <div id="login-form">
+            <h2>Login</h2>
+            <form id="login">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required><br><br>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required><br><br>
+                <button type="submit">Entrar</button>
+                <button type="button" id="register-button">Registrar</button>
+            </form>
+        </div>
+
+        <div id="menu" style="display:none;">
+            <div class="category" id="hamburgers">
+                <h2>Hambúrgueres</h2>
+                <div class="item">
+                    <input type="checkbox" data-name="Cheeseburger" data-price="10">
+                    <span>Cheeseburger</span>
+                    <span>R$ 10,00</span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" data-name="Double Burger" data-price="15">
+                    <span>Double Burger</span>
+                    <span>R$ 15,00</span>
+                </div>
+            </div>
+
+            <div class="category" id="salty">
+                <h2>Salgados</h2>
+                <div class="item">
+                    <input type="checkbox" data-name="Coxinha" data-price="5">
+                    <span>Coxinha</span>
+                    <span>R$ 5,00</span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" data-name="Pastel" data-price="6">
+                    <span>Pastel</span>
+                    <span>R$ 6,00</span>
+                </div>
+            </div>
+
+            <div class="category" id="drinks">
+                <h2>Bebidas</h2>
+                <div class="item">
+                    <input type="checkbox" data-name="Coca-Cola" data-price="4">
+                    <span>Coca-Cola</span>
+                    <span>R$ 4,00</span>
+                </div>
+                <div class="item">
+                    <input type="checkbox" data-name="Suco de Laranja" data-price="5">
+                    <span>Suco de Laranja</span>
+                    <span>R$ 5,00</span>
+                </div>
+            </div>
+
+            <div id="cart">
+                <h2>Carrinho de Compras</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items">
+                        <!-- Items will be dynamically added here -->
+                    </tbody>
+                </table>
+                <div class="checkout">
+                    <span class="total">Total: R$ <span id="total-price">0</span></span>
+                    <button id="checkout-button">Finalizar Pedido</button>
+                </div>
+            </div>
+
+            <div id="checkout-form" style="display:none;">
+                <h2>Finalização do Pedido</h2>
+                <form id="payment-form">
+                    <label for="payment-method">Forma de Pagamento:</label>
+                    <select id="payment-method" required>
+                        <option value="credit">Cartão de Crédito</option>
+                        <option value="debit">Cartão de Débito</option>
+                        <option value="pix">Pix</option>
+                    </select><br><br>
+                    <label for="customer-name">Nome Completo:</label>
+                    <input type="text" id="customer-name" required><br><br>
+                    <label for="address">Endereço:</label>
+                    <input type="text" id="address" required><br><br>
+                    <button type="submit">Confirmar Pedido</button>
+                    <button type="button" id="cancel-button">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

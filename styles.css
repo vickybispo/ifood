@@ -1,0 +1,69 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+h1 {
+    text-align: center;
+    color: #d32f2f;
+}
+.category {
+    margin-bottom: 20px;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.item input[type="checkbox"] {
+    margin-right: 10px;
+}
+#cart {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+#cart table {
+    width: 100%;
+}
+#cart table, #cart th, #cart td {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+#cart th, #cart td {
+    padding: 10px;
+    text-align: center;
+}
+#cart th {
+    background-color: #d32f2f;
+    color: #fff;
+}
+.total {
+    font-weight: bold;
+}
+.checkout {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkout button {
+    padding: 10px 20px;
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
